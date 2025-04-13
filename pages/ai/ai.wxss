@@ -1,0 +1,125 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #0B1A35;
+  position: relative;
+}
+
+.header {
+  padding: 20rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 32rpx;
+  background-color: #1C2B4B;
+  border-bottom: 2rpx solid #2D3B5B;
+}
+
+.chat-container {
+  flex: 1;
+  padding: 20rpx;
+  overflow-y: auto;
+}
+
+.message {
+  margin-bottom: 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-message {
+  align-self: flex-end;
+  max-width: 80%;
+}
+
+.user-message-content {
+  background-color: #1C64F2;
+  color: white;
+  padding: 24rpx 32rpx;
+  border-radius: 20rpx 20rpx 0 20rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.ai-message {
+  align-self: flex-start;
+  max-width: 80%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.ai-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  background-color: #1C64F2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ai-avatar-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.ai-message-content {
+  background-color: #1C2B4B;
+  color: white;
+  padding: 24rpx 32rpx;
+  border-radius: 20rpx 20rpx 20rpx 0;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.input-container {
+  padding: 10rpx;
+  background-color: #1C2B4B;
+  border-top: 2rpx solid #2D3B5B;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #2D3B5B;
+  border-radius: 36rpx;
+  padding: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 28rpx;
+  padding: 0 20rpx;
+}
+
+.send-btn {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1C64F2;
+  border-radius: 50%;
+  margin-left: 20rpx;
+}
+
+.send-icon {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.placeholder {
+  color: #8F9BB3;
+  font-size: 28rpx;
+} 

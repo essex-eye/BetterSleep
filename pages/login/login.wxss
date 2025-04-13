@@ -1,0 +1,337 @@
+.container {
+  min-height: 100vh;
+  background-color: #0B1424;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40rpx;
+}
+
+.logo-section {
+  margin-top: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 80rpx;
+}
+
+.logo-text {
+  color: #FFFFFF;
+  font-size: 40rpx;
+  margin-top: 24rpx;
+  font-weight: 500;
+}
+
+.login-section {
+  width: 100%;
+  margin-top: 160rpx;
+}
+
+.login-btn {
+  width: 100% !important;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: #0C88FE;
+  color: #FFFFFF;
+  font-size: 32rpx;
+  border-radius: 48rpx;
+  border: none;
+  font-weight: 500;
+}
+
+.login-btn::after {
+  border: none;
+}
+
+.register-link {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 28rpx;
+  margin-top: 40rpx;
+}
+
+.privacy-section {
+  width: 100%;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.privacy-label {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.privacy-text {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 36rpx;
+}
+
+.privacy-link {
+  font-size: 24rpx;
+  color: #0C88FE;
+  line-height: 36rpx;
+}
+
+checkbox {
+  margin-right: 8rpx;
+  margin-top: 8rpx;
+}
+
+checkbox .wx-checkbox-input {
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  background: transparent;
+  border: 2rpx solid rgba(255, 255, 255, 0.6);
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #0C88FE;
+  border-color: #0C88FE;
+}
+
+/* 隐私协议弹窗样式 */
+.privacy-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.privacy-popup-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.privacy-popup-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600rpx;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.popup-title {
+  font-size: 32rpx;
+  color: #333333;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 30rpx;
+}
+
+.popup-text {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.popup-link {
+  color: #0C88FE;
+  display: inline;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.popup-btn {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.popup-btn.disagree {
+  background: #F5F5F5;
+  color: #666666;
+}
+
+.popup-btn.agree {
+  background: #0C88FE;
+  color: #FFFFFF;
+}
+
+.popup-btn::after {
+  border: none;
+}
+
+/* 手机号获取弹窗样式 */
+.phone-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.phone-popup-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.phone-popup-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600rpx;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.phone-popup-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.phone-popup-logo {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  margin-right: 20rpx;
+}
+
+.phone-popup-title {
+  font-size: 36rpx;
+  color: #333333;
+  font-weight: 500;
+}
+
+.phone-popup-desc {
+  font-size: 32rpx;
+  color: #333333;
+  margin-bottom: 12rpx;
+}
+
+.phone-popup-tip {
+  font-size: 28rpx;
+  color: #999999;
+  margin-bottom: 40rpx;
+}
+
+.wx-phone-section {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+/* 手机号按钮样式 */
+.phone-number-btn {
+  width: 100% !important;
+  background: #FFFFFF !important;
+  border: 2rpx solid #EEEEEE !important;
+  border-radius: 16rpx !important;
+  padding: 30rpx 0 !important;
+  margin-bottom: 24rpx;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phone-number-btn::after {
+  border: none;
+}
+
+.wx-phone-number {
+  font-size: 40rpx;
+  color: #333333;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.wx-phone-tip {
+  font-size: 28rpx;
+  color: #999999;
+  display: block;
+}
+
+.wx-phone-guide {
+  font-size: 28rpx;
+  color: #666666;
+  display: block;
+  line-height: 1.6;
+  margin-bottom: 24rpx;
+}
+
+.phone-popup-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  align-items: center;
+}
+
+.phone-popup-btn {
+  width: 100% !important;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #F5F5F5 !important;
+  color: #333333;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  border: none;
+  font-weight: 500;
+}
+
+.phone-popup-btn::after {
+  border: none;
+}
+
+/* 使用其他号码按钮样式 */
+.other-phone-btn {
+  padding: 0 !important;
+  width: fit-content !important;
+  min-width: unset !important;
+  height: auto !important;
+  line-height: 1.5 !important;
+  background: transparent !important;
+  color: #0C88FE;
+  font-size: 32rpx;
+  border: none;
+  font-weight: 400;
+}
+
+.other-phone-btn::after {
+  border: none;
+} 

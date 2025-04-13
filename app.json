@@ -1,0 +1,44 @@
+{
+    "pages": [
+      "pages/login/login",
+      "pages/user/user",
+      "pages/sleep/sleep",
+      "pages/brain/brain",
+      "pages/ai/ai"
+    ],
+    "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#0B1A35",
+      "navigationBarTitleText": "登录",
+      "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+      "color": "#8F9BB3",
+      "selectedColor": "#ffffff",
+      "backgroundColor": "#1C2B4B",
+      "borderStyle": "white",
+      "list": [
+        {
+          "pagePath": "pages/sleep/sleep",
+          "text": "睡眠"
+        },
+        {
+          "pagePath": "pages/brain/brain",
+          "text": "大脑"
+        },
+        {
+          "pagePath": "pages/ai/ai",
+          "text": "AI顾问"
+        },
+        {
+          "pagePath": "pages/user/user",
+          "text": "我的"
+        }
+      ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "useExtendedLib": {
+      "weui": true
+    }
+  }

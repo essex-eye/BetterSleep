@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "睡眠",
+  "usingComponents": {
+    "mp-icon": "weui-miniprogram/icon/icon"
+  }
+}

@@ -1,0 +1,44 @@
+<view class="container">
+
+  <scroll-view class="chat-container" scroll-y="true" scroll-into-view="{{scrollToView}}">
+    <block wx:if="{{!messages.length}}">
+      <view class="ai-message">
+        <view class="ai-avatar">
+          <!-- 使用简单的背景色代替图标 -->
+        </view>
+        <view class="ai-message-content">
+          您好！我是您的AI睡眠顾问。我可以根据您的睡眠数据为您提供个性化的建议和指导。请告诉我您想了解什么？
+        </view>
+      </view>
+    </block>
+    
+    <block wx:for="{{messages}}" wx:key="index">
+      <view class="message">
+        <view wx:if="{{item.type === 'user'}}" class="user-message">
+          <view class="user-message-content">{{item.content}}</view>
+        </view>
+        <view wx:else class="ai-message">
+          <view class="ai-avatar">
+            <!-- 使用简单的背景色代替图标 -->
+          </view>
+          <view class="ai-message-content">{{item.content}}</view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  
+  <view class="input-container">
+    <view class="input-wrapper">
+      <input class="input" 
+             type="text" 
+             placeholder="请输入您的问题" 
+             placeholder-class="placeholder"
+             value="{{inputValue}}"
+             bindinput="handleInput"
+             bindconfirm="sendMessage"/>
+      <view class="send-btn" bindtap="sendMessage">
+        <text style="color: white; font-size: 24rpx;">发送</text>
+      </view>
+    </view>
+  </view>
+</view> 

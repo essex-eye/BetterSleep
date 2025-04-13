@@ -1,0 +1,68 @@
+<view class="container">
+  <view class="content">
+    <view class="logo-section">
+      <image class="logo" src="/assets/sheep.jpg" mode="aspectFit"></image>
+      <text class="logo-text">Sleep</text>
+    </view>
+
+    <view class="login-section">
+      <button class="login-btn" bindtap="handleLogin">一键登录</button>
+      <view class="register-link" bindtap="goToRegister">暂不登录</view>
+    </view>
+  </view>
+
+  <view class="privacy-section">
+    <checkbox-group bindchange="handlePrivacyChange">
+      <label class="privacy-label">
+        <checkbox value="agreed" checked="{{isPrivacyChecked}}" />
+        <text class="privacy-text">我已阅读并同意</text>
+        <text class="privacy-link" bindtap="showPrivacyPolicy">《小程序隐私保护指引》</text>
+        <text class="privacy-text">、</text>
+        <text class="privacy-link" bindtap="showUserAgreement">《注册协议》</text>
+        <text class="privacy-text">和</text>
+        <text class="privacy-link" bindtap="showPrivacyAgreement">《隐私政策》</text>
+      </label>
+    </checkbox-group>
+  </view>
+
+  <!-- 隐私协议弹窗 -->
+  <view class="privacy-popup" wx:if="{{showPrivacyPopup}}">
+    <view class="privacy-popup-mask"></view>
+    <view class="privacy-popup-content">
+      <view class="popup-title">请阅读并同意以下条款</view>
+      <view class="popup-text">
+        我已阅读并同意
+        <text class="popup-link" bindtap="showPrivacyPolicy">《小程序隐私保护指引》</text>、
+        <text class="popup-link" bindtap="showUserAgreement">《注册协议》</text>和
+        <text class="popup-link" bindtap="showPrivacyAgreement">《隐私政策》</text>
+      </view>
+      <view class="popup-buttons">
+        <button class="popup-btn disagree" bindtap="handleDisagreePrivacy">不同意</button>
+        <button class="popup-btn agree" 
+          open-type="getPhoneNumber" 
+          bindgetphonenumber="handleAgreePrivacyAndGetPhone">同意</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 手机号获取弹窗 -->
+  <view class="phone-popup" wx:if="{{showPhonePopup}}">
+    <view class="phone-popup-mask"></view>
+    <view class="phone-popup-content">
+      <view class="phone-popup-header">
+        <image class="phone-popup-logo" src="/assets/images/sheep.jpg" />
+        <view class="phone-popup-title">微信授权</view>
+        <view class="phone-popup-desc">为了更好的为您提供服务</view>
+        <view class="phone-popup-tips">请选择一个快捷登录方式</view>
+      </view>
+      <view class="phone-popup-btns">
+        <button class="phone-number-btn" bindtap="handlePhoneLogin" wx:if="{{hasWxPhone}}">
+          <text>微信绑定手机号</text>
+          <text>{{wxPhoneNumber}}</text>
+        </button>
+        <button class="other-phone-btn" bindtap="handleUseOtherPhone">使用其他手机号</button>
+        <button class="cancel-btn" bindtap="handleUseWxPhone">暂不使用</button>
+      </view>
+    </view>
+  </view>
+</view> 
