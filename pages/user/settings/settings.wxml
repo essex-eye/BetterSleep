@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="section">
+    <navigator url="/pages/user/profile/profile" class="item" hover-class="item-hover">
+      <text>个人信息</text>
+      <view class="arrow">></view>
+    </navigator>
+    <navigator url="/pages/user/sleepGoal/sleepGoal" class="item" hover-class="item-hover">
+      <text>睡眠目标设置</text>
+      <view class="arrow">></view>
+    </navigator>
+    <navigator url="/pages/user/notification/notification" class="item" hover-class="item-hover">
+      <text>通知设置</text>
+      <view class="arrow">></view>
+    </navigator>
+  </view>
+  
+  <view class="section">
+    <navigator url="/pages/user/faq/faq" class="item" hover-class="item-hover">
+      <text>常见问题</text>
+      <view class="arrow">></view>
+    </navigator>
+    <navigator url="/pages/user/feedback/feedback" class="item" hover-class="item-hover">
+      <text>意见反馈</text>
+      <view class="arrow">></view>
+    </navigator>
+    <view class="item" hover-class="item-hover" bindtap="clearCache">
+      <text>清理缓存</text>
+      <view class="arrow">></view>
+    </view>
+    <navigator url="/pages/user/about/about" class="item" hover-class="item-hover">
+      <text>关于我们</text>
+      <view class="arrow">></view>
+    </navigator>
+  </view>
+  
+  <button wx:if="{{isLoggedIn}}" class="logout-btn" hover-class="btn-hover" bindtap="logout">退出登录</button>
+  <button wx:else class="login-btn" hover-class="btn-hover" bindtap="handleLogin">点我登录</button>
+</view>

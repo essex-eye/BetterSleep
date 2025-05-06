@@ -1,6 +1,7 @@
 App({
   globalData: {
-    userInfo: null
+    userInfo: null,
+    isLoggedIn: true  // 默认为已登录状态
   },
   onLaunch() {
     // 初始化云开发环境
@@ -18,7 +19,8 @@ App({
     }
 
     this.globalData = {
-      userInfo: null
+      userInfo: null,
+      isLoggedIn: true  // 默认为已登录状态
     }
   }
 }) 

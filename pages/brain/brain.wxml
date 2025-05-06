@@ -1,3 +1,96 @@
 <view class="container">
-  <text>大脑页面</text>
+  <!-- 顶部标题和日期 -->
+  <view class="header">
+    <view class="title">大脑健康</view>
+    <view class="current-date">2023年12月21日</view>
+  </view>
+
+  <!-- 大脑健康指数卡片 -->
+  <view class="brain-health-card">
+    <view class="card-title">大脑健康指数</view>
+    <view class="health-index">
+      <view class="index-value">
+        <view class="index-score">78</view>
+        <view class="index-unit">分</view>
+      </view>
+      <view class="index-desc">健康状态良好</view>
+    </view>
+    <view class="index-progress">
+      <view class="progress-bar" style="width: 78%;"></view>
+    </view>
+  </view>
+
+  <!-- 能力指标卡片 -->
+  <view class="ability-card">
+    <view class="card-title">能力指标</view>
+    <view class="ability-grid">
+      <view class="ability-item">
+        <view class="ability-icon"></view>
+        <view class="ability-name">认知能力</view>
+        <view class="ability-score">82</view>
+      </view>
+      <view class="ability-item">
+        <view class="ability-icon"></view>
+        <view class="ability-name">记忆力</view>
+        <view class="ability-score">76</view>
+      </view>
+      <view class="ability-item">
+        <view class="ability-icon"></view>
+        <view class="ability-name">专注力</view>
+        <view class="ability-score">85</view>
+      </view>
+      <view class="ability-item">
+        <view class="ability-icon"></view>
+        <view class="ability-name">反应速度</view>
+        <view class="ability-score">70</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 测评按钮 -->
+  <view class="assessment-btn" bindtap="startAssessment">开始测评</view>
+
+  <!-- 历史记录 -->
+  <view class="history-card">
+    <view class="card-title">测评历史</view>
+    <view class="history-list">
+      <view class="history-item">
+        <view class="history-info">
+          <view class="history-title">认知能力测评</view>
+          <view class="history-date">2023-12-18</view>
+        </view>
+        <view class="history-score">80</view>
+      </view>
+      <view class="history-item">
+        <view class="history-info">
+          <view class="history-title">记忆力测评</view>
+          <view class="history-date">2023-12-15</view>
+        </view>
+        <view class="history-score">75</view>
+      </view>
+      <view class="history-item">
+        <view class="history-info">
+          <view class="history-title">专注力测评</view>
+          <view class="history-date">2023-12-10</view>
+        </view>
+        <view class="history-score">82</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部导航栏 -->
+  <view class="bottom-nav">
+    <view class="tab-item" bindtap="navigateToSleep">
+      <view class="tab-icon sleep-icon"></view>
+      <view class="tab-text">睡眠</view>
+    </view>
+    <view class="tab-item active">
+      <view class="tab-icon brain-icon"></view>
+      <view class="tab-text">大脑</view>
+    </view>
+    <view class="tab-item" bindtap="navigateToUser">
+      <view class="tab-icon user-icon"></view>
+      <view class="tab-text">我的</view>
+    </view>
+  </view>
 </view> 

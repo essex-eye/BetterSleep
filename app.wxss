@@ -4,6 +4,12 @@ page {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
     Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
     sans-serif;
+  --primary-bg: #151f38;
+  --secondary-bg: #22305a;
+  --text-color: #ffffff;
+  --text-secondary: #8f9bb3;
+  --border-color: #2d406b;
+  --hover-color: #2d3d6e;
 }
 
 .container {
@@ -13,4 +19,15 @@ page {
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+}
+
+/* 所有可点击元素添加指针样式 */
+button,
+.navigator,
+.function-item,
+.device-section,
+navigator,
+[bindtap],
+[hover-class] {
+  cursor: pointer !important;
 } 

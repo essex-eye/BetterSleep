@@ -1,16 +1,23 @@
 {
     "pages": [
       "pages/login/login",
+      "pages/login/phone-input/phone-input",
       "pages/user/user",
       "pages/sleep/sleep",
       "pages/brain/brain",
-      "pages/ai/ai"
+      "pages/ai/ai",
+      "pages/user/settings/settings"
     ],
     "window": {
       "backgroundTextStyle": "light",
       "navigationBarBackgroundColor": "#0B1A35",
       "navigationBarTitleText": "登录",
       "navigationBarTextStyle": "white"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "useExtendedLib": {
+      "weui": true
     },
     "tabBar": {
       "color": "#8F9BB3",
@@ -20,25 +27,28 @@
       "list": [
         {
           "pagePath": "pages/sleep/sleep",
-          "text": "睡眠"
+          "text": "睡眠",
+          "iconPath": "assets/icons/tab/sleep.png",
+          "selectedIconPath": "assets/icons/tab/sleep-active.png"
         },
         {
           "pagePath": "pages/brain/brain",
-          "text": "大脑"
+          "text": "大脑",
+          "iconPath": "assets/icons/tab/brain.png",
+          "selectedIconPath": "assets/icons/tab/brain-active.png"
         },
         {
           "pagePath": "pages/ai/ai",
-          "text": "AI顾问"
+          "text": "AI顾问",
+          "iconPath": "assets/icons/tab/ai.png",
+          "selectedIconPath": "assets/icons/tab/ai-active.png"
         },
         {
           "pagePath": "pages/user/user",
-          "text": "我的"
+          "text": "我的",
+          "iconPath": "assets/icons/tab/user.png",
+          "selectedIconPath": "assets/icons/tab/user-active.png"
         }
       ]
-    },
-    "style": "v2",
-    "sitemapLocation": "sitemap.json",
-    "useExtendedLib": {
-      "weui": true
     }
   }

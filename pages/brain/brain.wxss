@@ -1,7 +1,249 @@
 .container {
   min-height: 100vh;
-  background-color: #0B1A35;
-  padding: 20rpx;
-  color: #fff;
+  background-color: #f5f7fa;
+  padding: 30rpx;
+  color: #333;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 120rpx;
+}
+
+/* 顶部标题和日期 */
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.current-date {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 大脑健康指数卡片 */
+.brain-health-card {
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 20rpx;
+}
+
+.health-index {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.index-value {
+  display: flex;
+  align-items: center;
+}
+
+.index-score {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #4a90e2;
+  margin-right: 10rpx;
+}
+
+.index-unit {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.index-desc {
+  font-size: 28rpx;
+  color: #666;
+  background: rgba(74, 144, 226, 0.1);
+  padding: 6rpx 20rpx;
+  border-radius: 30rpx;
+}
+
+.index-progress {
+  height: 16rpx;
+  background: #eee;
+  border-radius: 8rpx;
+  margin-top: 10rpx;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4a90e2, #63b8ff);
+  border-radius: 8rpx;
+}
+
+/* 能力指标卡片 */
+.ability-card {
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.ability-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-top: 20rpx;
+}
+
+.ability-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  background: rgba(74, 144, 226, 0.05);
+}
+
+.ability-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 10rpx;
+  background-color: #4a90e2;
+  border-radius: 50%;
+}
+
+.ability-name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 5rpx;
+}
+
+.ability-score {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #4a90e2;
+}
+
+/* 测评按钮 */
+.assessment-btn {
+  background: linear-gradient(135deg, #4a90e2, #63b8ff);
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 500;
+  padding: 20rpx 0;
+  border-radius: 40rpx;
+  text-align: center;
+  margin: 30rpx 0;
+  box-shadow: 0 6rpx 20rpx rgba(74, 144, 226, 0.3);
+}
+
+/* 历史记录 */
+.history-card {
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.history-list {
+  margin-top: 20rpx;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.history-title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 6rpx;
+}
+
+.history-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.history-score {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #4a90e2;
+}
+
+/* 底部导航 */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 110rpx;
+  background: #fff;
+  display: flex;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.tab-item.active {
+  color: #4a90e2;
+}
+
+.tab-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-bottom: 6rpx;
+}
+
+.sleep-icon {
+  background-color: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center / cover no-repeat;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center / cover no-repeat;
+}
+
+.brain-icon {
+  background-color: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13,3 L13,10 L21,10 C21,6.13 17.87,3 13,3 Z M3,10 L3,21 L13,21 L13,10 L3,10 Z M3,3 L3,8 L11,8 L11,3 L3,3 Z M15,12 L15,21 L21,21 L21,12 L15,12 Z'/%3E%3C/svg%3E") center / cover no-repeat;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13,3 L13,10 L21,10 C21,6.13 17.87,3 13,3 Z M3,10 L3,21 L13,21 L13,10 L3,10 Z M3,3 L3,8 L11,8 L11,3 L3,3 Z M15,12 L15,21 L21,21 L21,12 L15,12 Z'/%3E%3C/svg%3E") center / cover no-repeat;
+}
+
+.user-icon {
+  background-color: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E") center / cover no-repeat;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E") center / cover no-repeat;
+}
+
+.tab-text {
+  font-size: 24rpx;
 } 

@@ -1,0 +1,169 @@
+.container {
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.header {
+  padding: 40rpx 30rpx;
+  text-align: center;
+  position: relative;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #333333;
+}
+
+.form {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-item {
+  display: flex;
+  padding: 30rpx;
+  align-items: center;
+}
+
+.form-label {
+  width: 180rpx;
+  font-size: 32rpx;
+  color: #333333;
+}
+
+.form-value {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.country {
+  justify-content: space-between;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+}
+
+.country-code {
+  margin-right: 20rpx;
+  font-size: 32rpx;
+  color: #333333;
+}
+
+.arrow {
+  width: 16rpx;
+  height: 16rpx;
+  border-top: 2rpx solid #999999;
+  border-right: 2rpx solid #999999;
+  transform: rotate(45deg);
+}
+
+.code {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.send-btn {
+  padding: 10rpx 20rpx;
+  background-color: #0C88FE;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  color: #ffffff;
+}
+
+.send-btn.disabled {
+  background-color: #cccccc;
+}
+
+input {
+  flex: 1;
+  height: 60rpx;
+  font-size: 32rpx;
+}
+
+.divider {
+  height: 1rpx;
+  background-color: #eaeaea;
+  margin-left: 30rpx;
+}
+
+.error-msg {
+  color: #ff4d4f;
+  font-size: 24rpx;
+  padding: 0 30rpx;
+  margin-top: -10rpx;
+  margin-bottom: 10rpx;
+}
+
+.save-option {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+checkbox {
+  margin-right: 16rpx;
+}
+
+checkbox .wx-checkbox-input {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  border: 2rpx solid #cccccc;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #0C88FE;
+  border-color: #0C88FE;
+}
+
+.status-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30rpx;
+}
+
+.success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.success-text {
+  margin-top: 16rpx;
+  font-size: 32rpx;
+  color: #00a854;
+}
+
+.btn-area {
+  padding: 30rpx;
+  margin-top: auto;
+}
+
+.confirm-btn {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  border-radius: 45rpx;
+  font-size: 34rpx;
+  color: #ffffff;
+  background-color: #cccccc;
+}
+
+.confirm-btn.active {
+  background-color: #0C88FE;
+} 

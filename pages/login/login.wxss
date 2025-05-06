@@ -13,11 +13,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 40rpx;
+  padding: 0 35rpx;
 }
 
 .logo-section {
-  margin-top: 25vh;
+  margin-top: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,17 +32,17 @@
 .logo-text {
   color: #FFFFFF;
   font-size: 40rpx;
-  margin-top: 24rpx;
+  margin-top: 30rpx;
   font-weight: 500;
 }
 
 .login-section {
   width: 100%;
-  margin-top: 160rpx;
+  margin-top: 100rpx;
 }
 
 .login-btn {
-  width: 100% !important;
+  width: 50% !important;
   height: 96rpx;
   line-height: 96rpx;
   background: #0C88FE;
@@ -51,6 +51,8 @@
   border-radius: 48rpx;
   border: none;
   font-weight: 500;
+  margin: 0 auto;
+  display: block;
 }
 
 .login-btn::after {
@@ -61,37 +63,54 @@
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
   font-size: 28rpx;
-  margin-top: 40rpx;
+  margin-top: 30rpx;
+  margin-bottom: 40rpx;
 }
 
 .privacy-section {
   width: 100%;
-  padding: 40rpx;
+  padding: 0 0 80rpx;
   box-sizing: border-box;
+  text-align: left;
 }
 
 .privacy-label {
   display: flex;
   align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+.privacy-text-container {
+  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+  padding-top: 6rpx;
 }
 
 .privacy-text {
   font-size: 24rpx;
   color: rgba(255, 255, 255, 0.6);
   line-height: 36rpx;
+  word-break: break-all;
+  white-space: normal;
 }
 
 .privacy-link {
   font-size: 24rpx;
   color: #0C88FE;
   line-height: 36rpx;
+  word-break: break-all;
+  white-space: normal;
 }
 
 checkbox {
   margin-right: 8rpx;
-  margin-top: 8rpx;
+  margin-top: 0rpx;
+  flex-shrink: 0;
+  align-self: flex-start;
+  vertical-align: top;
 }
 
 checkbox .wx-checkbox-input {
@@ -100,6 +119,7 @@ checkbox .wx-checkbox-input {
   border-radius: 50%;
   background: transparent;
   border: 2rpx solid rgba(255, 255, 255, 0.6);
+  vertical-align: top;
 }
 
 checkbox .wx-checkbox-input.wx-checkbox-input-checked {
@@ -128,14 +148,23 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 
 .privacy-popup-content {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 600rpx;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   background: #FFFFFF;
-  border-radius: 24rpx;
+  border-radius: 30rpx 30rpx 0 0;
   padding: 40rpx;
   box-sizing: border-box;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .popup-title {
@@ -168,11 +197,13 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 .popup-btn {
   flex: 1;
   height: 88rpx;
-  line-height: 88rpx;
   text-align: center;
-  border-radius: 44rpx;
+  border-radius: 30rpx;
   font-size: 32rpx;
   font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .popup-btn.disagree {
@@ -187,6 +218,12 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 
 .popup-btn::after {
   border: none;
+}
+
+.popup-btn text {
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.2;
 }
 
 /* 手机号获取弹窗样式 */
@@ -210,27 +247,39 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 
 .phone-popup-content {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 600rpx;
-  background: #FFFFFF;
-  border-radius: 24rpx;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #F5F5F5;
+  border-radius: 30rpx 30rpx 0 0;
   padding: 40rpx;
   box-sizing: border-box;
+  animation: slideUp 0.3s ease-out;
 }
 
-.phone-popup-header {
+/* 左对齐内容容器 */
+.phone-popup-content-aligned {
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 40rpx;
+}
+
+/* 左对齐的头部样式 */
+.phone-popup-header-aligned {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  margin-bottom: 20rpx;
+  margin-bottom: 24rpx;
+  width: 100%;
 }
 
 .phone-popup-logo {
   width: 80rpx;
   height: 80rpx;
   border-radius: 40rpx;
-  margin-right: 20rpx;
+  margin-right: 12rpx;
 }
 
 .phone-popup-title {
@@ -239,10 +288,24 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
   font-weight: 500;
 }
 
-.phone-popup-desc {
-  font-size: 32rpx;
+/* 左对齐的描述容器 */
+.phone-popup-desc-container-aligned {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.phone-popup-desc-title {
+  font-size: 36rpx; /* 字体减小一点 */
   color: #333333;
-  margin-bottom: 12rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.phone-popup-subdesc {
+  font-size: 24rpx;
+  color: #999999;
 }
 
 .phone-popup-tip {
@@ -260,17 +323,30 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 .phone-number-btn {
   width: 100% !important;
   background: #FFFFFF !important;
-  border: 2rpx solid #EEEEEE !important;
-  border-radius: 16rpx !important;
-  padding: 30rpx 0 !important;
-  margin-bottom: 24rpx;
+  border: none !important;
+  border-radius: 20rpx !important;
+  padding: 0 !important;
+  margin-bottom: 16rpx;
   display: flex !important;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100rpx !important;
+  box-sizing: border-box;
 }
 
 .phone-number-btn::after {
   border: none;
+}
+
+.phone-number {
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: normal;
+  display: block;
+  margin-bottom: 4rpx;
+  letter-spacing: 2rpx;
+  text-align: center;
 }
 
 .wx-phone-number {
@@ -298,7 +374,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
 .phone-popup-btns {
   display: flex;
   flex-direction: column;
-  gap: 24rpx;
+  gap: 8rpx;
   align-items: center;
 }
 
@@ -309,13 +385,18 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
   background: #F5F5F5 !important;
   color: #333333;
   font-size: 32rpx;
-  border-radius: 44rpx;
+  border-radius: 30rpx;
   border: none;
   font-weight: 500;
 }
 
 .phone-popup-btn::after {
   border: none;
+}
+
+/* 添加自定义样式容器用于增加间距 */
+.other-phone-container {
+  margin-top: 24rpx;
 }
 
 /* 使用其他号码按钮样式 */
@@ -327,11 +408,54 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked {
   line-height: 1.5 !important;
   background: transparent !important;
   color: #0C88FE;
-  font-size: 32rpx;
+  font-size: 28rpx;
   border: none;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .other-phone-btn::after {
   border: none;
+}
+
+.other-phone-btn text {
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+/* 不允许按钮样式 */
+.deny-btn {
+  width: 100% !important;
+  height: 100rpx;
+  background: #FFFFFF !important;
+  color: #333333;
+  font-size: 32rpx;
+  border-radius: 20rpx;
+  border: none;
+  font-weight: normal;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.deny-btn::after {
+  border: none;
+}
+
+.deny-btn text {
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+.phone-label-green {
+  font-size: 24rpx;
+  color: #00b26a;
+  display: block;
+  font-weight: normal;
+  line-height: 1;
+  text-align: center;
 } 

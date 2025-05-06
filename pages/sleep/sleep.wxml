@@ -1,3 +1,72 @@
 <view class="container">
-  <text>睡眠页面</text>
+  <!-- 顶部信息栏，用于显示时间、WiFi、电量等 -->
+  <view class="status-bar"></view>
+  
+  <!-- 主内容区域 -->
+  <view class="main-content">
+    <!-- AI推荐卡片 -->
+    <view class="recommendation-card">
+      <view class="recommendation-header">
+        <text class="recommendation-title">默认推荐</text>
+        <text class="recommendation-subtitle">填写信息获取个性化推荐</text>
+      </view>
+      
+      <view class="image-placeholder">
+        <!-- 使用蓝色山水风格的占位图 -->
+        <view class="placeholder-mountain">
+          <view class="mountain-sun"></view>
+          <view class="mountain-peak mountain-peak-1"></view>
+          <view class="mountain-peak mountain-peak-2"></view>
+        </view>
+      </view>
+      
+      <!-- 睡眠时间区域 -->
+      <view class="sleep-time-section">
+        <!-- 睡眠按钮和时间选择器的布局 -->
+        <view class="sleep-time-layout">
+          <!-- 预留空间用于平衡布局 -->
+          <view class="left-space"></view>
+          
+          <!-- 小羊图标按钮 -->
+          <view class="sheep-container" bindtap="startSleep">
+            <block wx:if="{{!useDefaultIcon}}">
+              <image class="sheep-image" src="/assets/images/banner/sheep.jpg" mode="aspectFill" binderror="imageError"></image>
+            </block>
+            <block wx:else>
+              <!-- 备用CSS图标 -->
+              <view class="default-icon">睡</view>
+            </block>
+            
+            <!-- 叠加在按钮上的文字 -->
+            <text class="overlay-text">开始睡眠</text>
+          </view>
+          
+          <!-- 垂直时间选择器 -->
+          <view class="time-picker-container">
+            <picker-view class="time-picker" indicator-class="time-picker-indicator" mask-class="time-picker-mask" value="{{timeIndex}}" bindchange="bindTimeChange">
+              <!-- 小时列 -->
+              <picker-view-column>
+                <view wx:for="{{hours}}" wx:key="index" class="picker-item {{index === timeIndex[0] ? 'selected' : ''}}">{{item}}</view>
+              </picker-view-column>
+              
+              <!-- 分隔符 -->
+              <picker-view-column class="colon-column">
+                <view class="picker-item colon-item">:</view>
+              </picker-view-column>
+              
+              <!-- 分钟列 -->
+              <picker-view-column>
+                <view wx:for="{{minutes}}" wx:key="index" class="picker-item {{index === timeIndex[2] ? 'selected' : ''}}">{{item}}</view>
+              </picker-view-column>
+            </picker-view>
+          </view>
+        </view>
+        
+        <!-- 查看更多睡眠疗法 -->
+        <view class="view-more">
+          <text>查看更多睡眠疗法></text>
+        </view>
+      </view>
+    </view>
+  </view>
 </view> 

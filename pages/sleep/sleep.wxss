@@ -1,7 +1,553 @@
 .container {
   min-height: 100vh;
-  background-color: #0B1A35;
-  padding: 20rpx;
-  color: #fff;
+  width: 100vw;
+  background-color: #0B1424;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  position: relative;
   box-sizing: border-box;
+  color: #ffffff;
+  background-image: linear-gradient(to bottom, #0B1424, #141F38);
+  background-size: 100% 100%;
+  overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom); /* 适配底部安全区域 */
+}
+
+/* 顶部状态栏 */
+.status-bar {
+  height: 40rpx;
+  width: 100%;
+}
+
+/* 主内容区域 */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* 推荐卡片样式 */
+.recommendation-card {
+  width: 96vw;
+  background: rgba(28, 43, 75, 0.7);
+  padding: 20rpx 20rpx 30rpx 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: none;
+  margin: 0 auto;
+  border-radius: 16rpx;
+}
+
+/* 推荐标题部分 */
+.recommendation-header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 20rpx;
+  padding: 0 10rpx;
+}
+
+.recommendation-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #ffffff;
+  margin-right: 10rpx;
+}
+
+.recommendation-subtitle {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* 图片占位符 */
+.image-placeholder {
+  width: 100%;
+  height: 380rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+  position: relative;
+}
+
+/* 蓝色山水占位图 */
+.placeholder-mountain {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.mountain-sun {
+  width: 50rpx;
+  height: 50rpx;
+  background-color: #cccccc;
+  border-radius: 50%;
+  position: absolute;
+  top: 60rpx;
+  right: 100rpx;
+}
+
+.mountain-peak {
+  position: absolute;
+  bottom: 0;
+  background-color: #2196F3;
+}
+
+.mountain-peak-1 {
+  width: 70%;
+  height: 120rpx;
+  left: 0;
+  clip-path: polygon(0% 100%, 60% 0%, 100% 100%);
+}
+
+.mountain-peak-2 {
+  width: 60%;
+  height: 90rpx;
+  right: 0;
+  clip-path: polygon(0% 100%, 40% 0%, 100% 100%);
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 睡眠时间部分 */
+.sleep-time-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30rpx;
+  width: 100%;
+}
+
+/* 睡眠按钮和时间选择器的横向布局 */
+.sleep-time-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20rpx;
+  padding: 10rpx 0;
+  position: relative;
+}
+
+/* 左侧空间 */
+.left-space {
+  width: 50%;
+  height: 280rpx;
+}
+
+/* 小羊容器 */
+.sheep-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #4080FF;
+  border-radius: 50%;
+  width: 250rpx;  /* 进一步放大按钮尺寸 */
+  height: 250rpx; /* 进一步放大按钮尺寸 */
+  justify-content: center;
+  position: absolute;
+  left: 46%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 0 20rpx rgba(64, 128, 255, 0.6);
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.sheep-container:active {
+  transform: translate(-50%, -50%) scale(0.95);
+  box-shadow: 0 0 10rpx rgba(64, 128, 255, 0.4);
+}
+
+/* 小羊图片 */
+.sheep-image {
+  width: 250rpx;  /* 放大图片尺寸，与容器相同 */
+  height: 250rpx; /* 放大图片尺寸，与容器相同 */
+  display: block;
+  object-fit: cover; /* 确保图片填满容器但保持比例 */
+  border-radius: 50%;
+}
+
+/* 叠加在按钮上的文字 */
+.overlay-text {
+  position: absolute;
+  top: 85%; /* 可以调整这个值来上下移动文字位置，增大下移，减小上移 */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black; /* 改为黑色文字 */
+  font-size: 30rpx;
+  font-weight: normal;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 8rpx 20rpx;
+  border-radius: 20rpx;
+  z-index: 3;
+  white-space: nowrap; /* 防止文字换行 */
+}
+
+/* 备用图标样式 */
+.default-icon {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  font-size: 100rpx; /* 放大字体 */
+  line-height: 250rpx; /* 调整行高以匹配新的按钮高度 */
+  text-align: center;
+  font-weight: bold;
+}
+
+/* 山峰图标 */
+.mountain-icon {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background-color: #38A0F5;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10rpx rgba(255, 255, 255, 0.3);
+}
+
+.mountain-icon-peak {
+  width: 40rpx;
+  height: 35rpx;
+  background-color: #ffffff;
+  clip-path: polygon(0% 100%, 50% 20%, 100% 100%);
+}
+
+/* 查看更多 */
+.view-more {
+  text-align: center;
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 20rpx;
+  padding-bottom: 15rpx;
+  position: relative;
+  z-index: 1;
+}
+
+/* 卡片通用样式 */
+.sleep-score-card,
+.sleep-data-card,
+.sleep-stages-card,
+.sleep-advice-card {
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+/* 睡眠评分卡片样式 */
+.sleep-score-card {
+  text-align: center;
+  position: relative;
+}
+
+.score-circle {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c4dff, #448aff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30rpx auto;
+  color: #fff;
+  box-shadow: 0 6rpx 20rpx rgba(124, 77, 255, 0.3);
+}
+
+.score-value {
+  font-size: 60rpx;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 24rpx;
+  margin-top: 5rpx;
+}
+
+.score-desc {
+  font-size: 28rpx;
+  color: #7c4dff;
+  margin-top: 20rpx;
+}
+
+/* 睡眠数据分析样式 */
+.data-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.data-item {
+  width: 48%;
+  background-color: #f9f9fd;
+  border-radius: 15rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.data-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #3a3a3a;
+  margin-bottom: 10rpx;
+}
+
+.data-label {
+  font-size: 24rpx;
+  color: #888;
+}
+
+/* 睡眠阶段样式 */
+.stages-chart {
+  height: 200rpx;
+  margin-bottom: 30rpx;
+}
+
+.chart-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #f0f0f5 0%, #e6e6f0 20%, #f0f0f5 40%, #f0f0f5 100%);
+  border-radius: 10rpx;
+}
+
+.stages-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.stage-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.stage-color {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.stage-color.deep {
+  background-color: #5e35b1;
+}
+
+.stage-color.light {
+  background-color: #7986cb;
+}
+
+.stage-color.rem {
+  background-color: #42a5f5;
+}
+
+.stage-name {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.stage-time {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+/* 睡眠建议样式 */
+.advice-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.advice-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25rpx;
+}
+
+.advice-icon {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background-color: #7c4dff;
+  margin-right: 20rpx;
+}
+
+.advice-text {
+  font-size: 28rpx;
+  color: #555;
+  line-height: 1.4;
+}
+
+.sleep-icon {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyLDRhOCw4LDAsMCwwLTgsMThIOUE2LDYsMCwwLDEsMTUsNnYyQTQsNCwwLDAsMCwxMSwxMmgxYTQsNCwwLDAsMCw0LDR2MmExMCwxMCwwLDAsMSwxLTQuNEExMC44NiwxMC44NiwwLDAsMSwyMCwxMiw4LDgsMCwwLDAsMTIsNFoiIHN0eWxlPSJmaWxsOiM3YzRkZmYiLz48L3N2Zz4=');
+}
+
+.brain-icon {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTIxLDEyYzAsMi03Ljg5LDExLTEwLDExUzEsMTQsMSwxMmMwLTIuNzYsMy45Mi01LDcuNS01YTEuOTQsMS45NCwwLDAsMSwyLDIsMTAuMzIsMTAuMzIsMCwwLDEtMS4xNSw0LjVjMS4yOS4zMSwyLjY1LS40NywyLjY1LTIuNWExLjU3LDEuNTcsMCwwLDEsMi0xLjVBMjAuMTQsMjAuMTQsMCwwLDEsMTcsMTRjMS4yOS0uNTEsMi42NS0xLjE3LDMuMzEtMi40OUExLjYzLDEuNjMsMCwwLDEsMjIsMTJaIiBzdHlsZT0iZmlsbDojODg4Ii8+PC9zdmc+');
+}
+
+.user-icon {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyLDRhNCw0LDAsMSwwLDQsNEE0LDQsMCwwLDAsMTIsNFptMCwxMGMtNC40MiwwLTgsMS43OS04LDR2Mmg5LjVWMTguMzJBMS41NCwxLjU0LDAsMCwxLDE0LjUsMTdjLjMyLDAsLjY2LDAsLjkyLjMyQTEuNTYsMS41NiwwLDAsMSwxNywxOC41di0yLjY2QTUsMywwLDAsMCwxMiwxNFoiIHN0eWxlPSJmaWxsOiM4ODgiLz48L3N2Zz4=');
+}
+
+/* 时间选择器容器 */
+.time-picker-container {
+  width: 30%;
+  height: 280rpx;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-right: 10rpx;
+}
+
+/* 时间选择器 */
+.time-picker {
+  width: 100%;
+  height: 100%;
+  background: transparent; /* 将背景设为透明 */
+  position: relative; /* 添加相对定位 */
+}
+
+/* 选择器指示器的替代方法 - 使用伪元素创建一个透明带边框的选中效果 */
+.time-picker::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 90rpx;
+  border-top: 1rpx solid rgba(100, 149, 255, 0);
+  border-bottom: 1rpx solid rgba(65, 78, 109, 0);
+  pointer-events: none; /* 确保不会影响点击事件 */
+  z-index: 5;
+}
+
+/* 被选中行的背景色 - 完全透明 */
+.time-picker-indicator {
+  height: 90rpx;
+  background-color: transparent !important;
+  border-radius: 0;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* picker-view默认样式覆盖 */
+picker-view {
+  background-color: transparent !important;
+}
+
+picker-view-column {
+  background-color: transparent !important;
+}
+
+/* 选择项默认样式 - 灰色普通字体 */
+.picker-item {
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: rgba(173, 177, 199, 0.36);
+  font-size: 32rpx;
+  background: transparent; /* 设置背景为透明 */
+}
+
+/* 蒙版样式改为透明 */
+.time-picker-mask {
+  background: transparent !important;
+  background-image: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  opacity: 1 !important;
+}
+
+/* 全局样式覆盖 - 针对微信小程序内部样式 */
+page {
+  --indicator-bg-color: transparent !important;
+  --indicator-border-color: transparent !important;
+}
+
+/* 覆盖微信内置的选择器样式 */
+.wx-picker-indicator {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.wx-picker-mask {
+  background: transparent !important;
+}
+
+/* 选中项样式 - 增强可见度但保持透明背景 */
+.picker-item.selected {
+  color: #ffffff;
+  font-size: 40rpx;
+  font-weight: bold;
+  background: transparent; /* 设置背景为透明 */
+  position: relative;
+  z-index: 10; /* 提高选中项的层级，确保在最上层 */
+}
+
+/* 冒号样式 */
+.picker-item.colon-item {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 小时列宽度 */
+.time-picker picker-view-column:first-child {
+  flex: 1;
+}
+
+/* 分隔符列宽度 */
+.colon-column {
+  flex: 0.5;
+}
+
+/* 分钟列宽度 */
+.time-picker picker-view-column:last-child {
+  flex: 1;
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 } 

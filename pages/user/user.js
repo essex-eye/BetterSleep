@@ -1,7 +1,8 @@
 Page({
   data: {
+    isLoggedIn: true, // 默认为已登录状态
     userInfo: {
-      avatarUrl: '/assets/images/default-avatar.png',
+      avatarUrl: '/assets/images/user/default-avatar.png',
       nickName: '用户名'
     },
     device: {
@@ -27,6 +28,14 @@ Page({
     this.getStats();
   },
 
+  onShow() {
+    // 每次显示页面时检查登录状态
+    const app = getApp();
+    this.setData({
+      isLoggedIn: app.globalData.isLoggedIn
+    });
+  },
+
   getUserInfo() {
     // TODO: 从服务器获取用户信息
   },
@@ -39,6 +48,18 @@ Page({
     // TODO: 获取统计数据
   },
 
+  navigateToLogin() {
+    wx.navigateTo({
+      url: '/pages/login/login'
+    });
+  },
+
+  navigateToVip() {
+    wx.navigateTo({
+      url: '/pages/user/vip/vip'
+    });
+  },
+
   // 导航处理函数
   navigateToTutorial() {
     wx.navigateTo({
@@ -47,15 +68,27 @@ Page({
   },
 
   navigateToNews() {
+    const app = getApp();
+    if (app.globalData.isLoggedIn) {
     wx.navigateTo({
       url: '/pages/news/news'
     });
+    } else {
+      // 未登录状态下跳转到登录页
+      this.navigateToLogin();
+    }
   },
 
   navigateToCollection() {
+    const app = getApp();
+    if (app.globalData.isLoggedIn) {
     wx.navigateTo({
       url: '/pages/collection/collection'
     });
+    } else {
+      // 未登录状态下跳转到登录页
+      this.navigateToLogin();
+    }
   },
 
   navigateToService() {
@@ -66,7 +99,13 @@ Page({
 
   navigateToSettings() {
     wx.navigateTo({
-      url: '/pages/settings/settings'
+      url: '/pages/user/settings/settings'
+    });
+  },
+
+  navigateToDevice() {
+    wx.navigateTo({
+      url: '/pages/user/device/device'
     });
   },
 

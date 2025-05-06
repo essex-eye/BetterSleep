@@ -1,29 +1,35 @@
 <view class="container">
-  <!-- 顶部用户信息 -->
+  <!-- 顶部用户信息始终显示，但内容根据登录状态变化 -->
   <view class="user-header">
     <view class="user-info">
-      <image class="user-avatar" src="/assets/images/default-avatar.png"></image>
-      <text class="user-name">用户名</text>
-      <button class="vip-button">开通会员</button>
+      <image class="user-avatar" src="/assets/images/user/default-avatar.png" mode="aspectFill"></image>
+      <text class="user-name" wx:if="{{isLoggedIn}}">用户名</text>
+      <text class="user-name login-text" wx:else bindtap="navigateToLogin">点击登录</text>
+      <button class="vip-button" wx:if="{{isLoggedIn}}" bindtap="navigateToVip">开通会员</button>
+      <button class="vip-button" wx:else bindtap="navigateToLogin">开通会员</button>
     </view>
   </view>
 
   <!-- 我的设备 -->
-  <view class="device-section">
+  <view class="device-section" hover-class="{{isLoggedIn ? 'device-section-hover' : ''}}" bindtap="{{isLoggedIn ? 'navigateToDevice' : 'navigateToLogin'}}">
     <view class="device-header">
       <text class="section-title">我的设备</text>
-      <text class="status-tag">已连接</text>
+      <text class="status-tag" wx:if="{{isLoggedIn}}">已连接</text>
     </view>
     <view class="device-content">
       <view class="device-image-container">
-        <image class="device-image" src="/assets/images/device.png" mode="aspectFit"></image>
+        <image class="device-image" src="/assets/images/sleep/device.png" mode="aspectFit"></image>
       </view>
-      <text class="more-text">更多 ></text>
+      <text class="more-text" wx:if="{{isLoggedIn}}">更多 ></text>
+    </view>
+    <!-- 未登录时的蒙版 -->
+    <view class="login-mask" wx:if="{{!isLoggedIn}}">
+      <text class="mask-text">登录后查看</text>
     </view>
   </view>
 
   <!-- 睡眠数据统计 -->
-  <view class="stats-section">
+  <view class="stats-section" bindtap="{{!isLoggedIn ? 'navigateToLogin' : ''}}">
     <view class="stats-row">
       <view class="stats-item">
         <view class="stats-content">
@@ -31,7 +37,8 @@
             <text class="stats-icon">⌚</text>
             <view class="stats-text">
               <text class="stats-label">平均睡眠时长</text>
-              <text class="stats-value">8小时02分</text>
+              <text class="stats-value" wx:if="{{isLoggedIn}}">8小时02分</text>
+              <text class="stats-value placeholder" wx:else>--</text>
             </view>
           </view>
         </view>
@@ -42,7 +49,8 @@
             <text class="stats-icon">☀️</text>
             <view class="stats-text">
               <text class="stats-label">睡眠质量</text>
-              <text class="stats-value">80分</text>
+              <text class="stats-value" wx:if="{{isLoggedIn}}">80分</text>
+              <text class="stats-value placeholder" wx:else>--</text>
             </view>
           </view>
         </view>
@@ -55,7 +63,8 @@
             <text class="stats-icon">ℹ️</text>
             <view class="stats-text">
               <text class="stats-label">历史睡眠问题</text>
-              <text class="stats-value">3个</text>
+              <text class="stats-value" wx:if="{{isLoggedIn}}">3个</text>
+              <text class="stats-value placeholder" wx:else>--</text>
             </view>
           </view>
         </view>
@@ -66,16 +75,21 @@
             <text class="stats-icon">🌙</text>
             <view class="stats-text">
               <text class="stats-label">睡眠监测</text>
-              <text class="stats-value">3次</text>
+              <text class="stats-value" wx:if="{{isLoggedIn}}">3次</text>
+              <text class="stats-value placeholder" wx:else>--</text>
             </view>
           </view>
         </view>
       </view>
     </view>
+    <!-- 未登录时的蒙版 -->
+    <view class="login-mask" wx:if="{{!isLoggedIn}}">
+      <text class="mask-text">登录后查看</text>
+    </view>
   </view>
 
   <!-- 评估数据 -->
-  <view class="assessment-section">
+  <view class="assessment-section" bindtap="{{!isLoggedIn ? 'navigateToLogin' : ''}}">
     <view class="assessment-row">
       <view class="assessment-item">
         <view class="assessment-content">
@@ -83,7 +97,8 @@
             <text class="assessment-icon">🎯</text>
             <view class="assessment-text">
               <text class="assessment-label">最近认知评估</text>
-              <text class="assessment-value">80分</text>
+              <text class="assessment-value" wx:if="{{isLoggedIn}}">80分</text>
+              <text class="assessment-value placeholder" wx:else>--</text>
             </view>
           </view>
         </view>
@@ -94,7 +109,8 @@
             <text class="assessment-icon">😊</text>
             <view class="assessment-text">
               <text class="assessment-label">最近情绪评估</text>
-              <text class="assessment-value">80分</text>
+              <text class="assessment-value" wx:if="{{isLoggedIn}}">80分</text>
+              <text class="assessment-value placeholder" wx:else>--</text>
             </view>
           </view>
         </view>
@@ -107,34 +123,39 @@
             <text class="assessment-icon">❤️</text>
             <view class="assessment-text">
               <text class="assessment-label">最近心理评估</text>
-              <text class="assessment-value">90分</text>
+              <text class="assessment-value" wx:if="{{isLoggedIn}}">90分</text>
+              <text class="assessment-value placeholder" wx:else>--</text>
             </view>
           </view>
         </view>
       </view>
       <view class="assessment-item empty-item"></view>
     </view>
+    <!-- 未登录时的蒙版 -->
+    <view class="login-mask" wx:if="{{!isLoggedIn}}">
+      <text class="mask-text">登录后查看</text>
+    </view>
   </view>
 
-  <!-- 功能列表 -->
+  <!-- 功能列表 - 始终显示 -->
   <view class="function-list">
-    <view class="function-item" bindtap="navigateToTutorial">
+    <view class="function-item" hover-class="function-item-hover" bindtap="navigateToTutorial">
       <text>使用教学</text>
       <text class="arrow">></text>
     </view>
-    <view class="function-item" bindtap="navigateToNews">
+    <view class="function-item" hover-class="function-item-hover" bindtap="navigateToNews">
       <text>消息</text>
       <text class="arrow">></text>
     </view>
-    <view class="function-item" bindtap="navigateToCollection">
+    <view class="function-item" hover-class="function-item-hover" bindtap="navigateToCollection">
       <text>收藏</text>
       <text class="arrow">></text>
     </view>
-    <view class="function-item" bindtap="navigateToService">
+    <view class="function-item" hover-class="function-item-hover" bindtap="navigateToService">
       <text>联系客服</text>
       <text class="arrow">></text>
     </view>
-    <view class="function-item" bindtap="navigateToSettings">
+    <view class="function-item" hover-class="function-item-hover" bindtap="navigateToSettings">
       <text>设置</text>
       <text class="arrow">></text>
     </view>
